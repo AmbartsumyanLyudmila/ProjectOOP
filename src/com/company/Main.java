@@ -31,11 +31,11 @@ public class Main {
         Boolean setSex = Boolean.parseBoolean(scanner.nextLine());
         String a = null, b = null;
         Person person;
-        float c = 0f, d = 0f;
-        if (setSex == true) {
-            person = new Man(a, b, c, d);
+        float a1=0f,c = 0f, d = 0f;
+        if (setSex == false) {
+            person = new Women( setSex,a, b, c, d);
         } else {
-            person = new Women(a, b, c, d);
+            person = new Man(setSex,a, b, c, d);
         }
         System.out.println("Please enter FirstName->Click Enter");
         Scanner scanner1 = new Scanner(System.in);

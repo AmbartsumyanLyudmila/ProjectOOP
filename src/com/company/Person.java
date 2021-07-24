@@ -6,13 +6,25 @@ import java.util.Scanner;
 
 public abstract class Person {
 
-
-    public abstract boolean getSex();
-
+    boolean getSex;
     String FirstName;
     String LastName;
     float height;
     float weight;
+
+    public Person(String firstName, String lastName, float height, float weight) {
+    }
+
+
+
+
+    public boolean isGetSex() {
+        return getSex;
+    }
+
+    public void setGetSex(boolean getSex) {
+        this.getSex = getSex;
+    }
 
     public String getFirstName() {
         return FirstName;
@@ -46,13 +58,17 @@ public abstract class Person {
         this.weight = weight;
     }
 
-    public Person(String firstName, String lastName, float height, float weight) {
+    public Person(boolean getSex,String firstName, String lastName, float height, float weight) {
         FirstName = firstName;
         LastName = lastName;
         this.height = height;
         this.weight = weight;
+        this.getSex = getSex;
     }
+protected Person (boolean getSex ){
+    this.getSex = getSex;
 
+}
     public boolean Speak(Person person) {
         if (this.getSex() != person.getSex())
             return true;
@@ -63,12 +79,14 @@ public abstract class Person {
 
 
     public boolean Tolerate(Person person) {
-        if (this.getSex() == false && person.getSex() == false)
+        if (this.getSex == false && person.getSex() == false)
             return Math.random() < 0.05;
         else if (this.getSex() != person.getSex())
             return Math.random() < 0.7;
         else return Math.random() < 0.056;
     }
+
+    protected abstract boolean getSex();
 
     public boolean SpendTime(Person person) {
         if (((this.getHeight() - person.getHeight()) / person.getHeight()) * 100 > 10)

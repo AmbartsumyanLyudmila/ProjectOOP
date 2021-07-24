@@ -3,7 +3,24 @@ package com.company;
 import java.util.Scanner;
 
 public class Women extends Person {
-    public Women(String firstName, String lastName, float height, float weight) {
+
+    @Override
+    protected boolean getSex() {
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Women{" +
+                "getSex=" + getSex +
+                ", FirstName='" + FirstName + '\'' +
+                ", LastName='" + LastName + '\'' +
+                ", height=" + height +
+                ", weight=" + weight +
+                "} " + super.toString();
+    }
+
+    public Women(Boolean setSex, String firstName, String lastName, float height, float weight) {
         super(firstName, lastName, height, weight);
     }
 
@@ -11,23 +28,6 @@ public class Women extends Person {
     public String getFirstName() {
         return super.getFirstName();
     }
-
-    @Override
-    public boolean getSex() {
-        return true;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Women{" +
-                "FirstName='" + FirstName + '\'' +
-                ", LastName='" + LastName + '\'' +
-                ", height=" + height +
-                ", weight=" + weight +
-                "} " + super.toString();
-    }
-
 
     @Override
     public String getLastName() {
@@ -47,9 +47,9 @@ public class Women extends Person {
     protected Person BabyBorn(Person person) {
         Person baby;
         if (Math.random() > 0.5) {
-            baby = new Women(getFirstName(), getLastName(), getHeight(), getWeight());
+            baby = new Women(getSex, getFirstName(), getLastName(), getHeight(), getWeight());
         } else {
-            baby = new Man(getFirstName(), getLastName(), getHeight(), getWeight());
+            baby = new Man(getSex,getFirstName(), getLastName(), getHeight(), getWeight());
         }
         System.out.println("Please enter First name baby");
         Scanner scanner = new Scanner(System.in);

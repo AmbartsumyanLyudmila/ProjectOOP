@@ -2,19 +2,20 @@ package com.company;
 
 public class Man extends Person {
 
+
+
+    public Man(boolean getSex,String firstName, String lastName, float height, float weight) {
+        super(getSex,firstName, lastName, height, weight);
+
+    }
     @Override
     public boolean getSex() {
-        return false;
+        return true;
     }
-
-    public Man(String firstName, String lastName, float height, float weight) {
-        super(firstName, lastName, height, weight);
-
-    }
-
     @Override
     public String toString() {
         return "Man{" +
+                "getSex=" + getSex+'\''+
                 "FirstName='" + FirstName + '\'' +
                 ", LastName='" + LastName + '\'' +
                 ", height=" + height +
